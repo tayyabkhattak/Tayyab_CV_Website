@@ -47,6 +47,15 @@ const navMenu = document.getElementById('nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 const scrollTopBtn = document.getElementById('scroll-top');
 
+// Initialize skill bar animations
+document.addEventListener('DOMContentLoaded', () => {
+    const skillFills = document.querySelectorAll('.skill-fill');
+    skillFills.forEach(fill => {
+        const width = fill.getAttribute('data-width');
+        fill.style.setProperty('--width', width);
+    });
+});
+
 // Sticky navbar on scroll
 window.addEventListener('scroll', () => {
     if (window.scrollY > 100) {

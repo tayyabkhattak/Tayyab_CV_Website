@@ -148,14 +148,15 @@ window.addEventListener('scroll', updateActiveNavLink);
 function animateCounter(element, target, duration = 2000) {
     let start = 0;
     const increment = target / (duration / 16); // 60 FPS
+    const shouldHavePlus = target === 8 || target === 15 || target === 1000; // Numbers that should have "+"
     
     const timer = setInterval(() => {
         start += increment;
         if (start >= target) {
-            element.textContent = target + (target === 8 ? '+' : target === 1000 ? '+' : '+');
+            element.textContent = target + (shouldHavePlus ? '+' : '');
             clearInterval(timer);
         } else {
-            element.textContent = Math.floor(start) + (target === 8 ? '+' : target === 1000 ? '+' : '+');
+            element.textContent = Math.floor(start) + (shouldHavePlus ? '+' : '');
         }
     }, 16);
 }
@@ -171,7 +172,9 @@ function checkCounters() {
         const statNumbers = document.querySelectorAll('.stat-number');
         statNumbers.forEach(stat => {
             const target = parseInt(stat.getAttribute('data-target'));
-            animateCounter(stat, target);
+            if (!isNaN(target)) { // Only animate if we have a valid number
+                animateCounter(stat, target);
+            }
         });
         countersAnimated = true;
     }

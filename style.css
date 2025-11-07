@@ -2,29 +2,29 @@
    CSS Variables & Reset
    =========================== */
 :root {
-    --primary-color: #006dd2;
-    --secondary-color: #00529d;
-    --accent-color: #0b5fab;
-    --dark-color: #2a2c2f;
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --accent-color: #3b82f6;
+    --dark-color: #0f172a;
     --light-color: #f8fafc;
-    --gray-color: #777c80;
+    --gray-color: #64748b;
     --border-color: #e2e8f0;
-    --success-color: #22a46e;
+    --success-color: #10b981;
     --white: #ffffff;
     --transition: all 0.3s ease;
 }
 
 /* Dark Theme */
 [data-theme="dark"] {
-    --primary-color: #006dd2;
-    --secondary-color: #00529d;
-    --accent-color: #0b5fab;
+    --primary-color: #60a5fa;
+    --secondary-color: #3b82f6;
+    --accent-color: #93c5fd;
     --dark-color: #e2e8f0;
-    --light-color: #212226;
-    --gray-color: #b7bbc0;
-    --border-color: #3f444a;
-    --success-color: #22a46e;
-    --white: #2a2c2f;
+    --light-color: #0f172a;
+    --gray-color: #94a3b8;
+    --border-color: #475569;
+    --success-color: #4ade80;
+    --white: #1e293b;
 }
 
 /* Dark theme specific improvements */
@@ -56,14 +56,14 @@
 
 /* Professional Theme */
 [data-theme="professional"] {
-    --primary-color: #5e35b1;
-    --secondary-color: #642fb4;
-    --accent-color: #7e57c2;
-    --dark-color: #2a2c2f;
+    --primary-color: #059669;
+    --secondary-color: #047857;
+    --accent-color: #10b981;
+    --dark-color: #064e3b;
     --light-color: #f0fdf4;
-    --gray-color: #777c80;
-    --border-color: #e2e8f0;
-    --success-color: #22a46e;
+    --gray-color: #6b7280;
+    --border-color: #d1fae5;
+    --success-color: #059669;
     --white: #ffffff;
 }
 
@@ -81,7 +81,7 @@ html {
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.7;
-    color: #2a2c2f;
+    color: var(--dark-color);
     background: var(--light-color);
     overflow-x: hidden;
 }
@@ -238,7 +238,7 @@ body {
     display: flex;
     align-items: center;
     padding-top: 70px;
-    background: linear-gradient(135deg, #006dd2 0%, #5e35b1 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     position: relative;
     overflow: hidden;
 }

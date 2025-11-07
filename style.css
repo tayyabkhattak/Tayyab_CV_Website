@@ -238,7 +238,7 @@ body {
     display: flex;
     align-items: center;
     padding-top: 70px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0d406b 0%, #1a5490 50%, #0d406b 100%);
     position: relative;
     overflow: hidden;
 }
@@ -246,12 +246,54 @@ body {
 .hero::before {
     content: '';
     position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(96, 165, 250, 0.1) 0%, transparent 50%);
+    animation: gradientShift 15s ease infinite;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-    opacity: 0.3;
+    background-image:
+        radial-gradient(circle at 15% 25%, rgba(255,255,255,0.08) 1px, transparent 1px),
+        radial-gradient(circle at 85% 75%, rgba(255,255,255,0.06) 1px, transparent 1px),
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 1px, transparent 1px),
+        radial-gradient(circle at 25% 80%, rgba(255,255,255,0.07) 1px, transparent 1px),
+        radial-gradient(circle at 75% 20%, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 250px 250px, 300px 300px, 200px 200px, 280px 280px, 220px 220px;
+    background-position: 0 0, 50px 50px, 100px 100px, 150px 50px, 200px 150px;
+    animation: starsFloat 60s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+        transform: translate(5%, 5%) rotate(120deg);
+    }
+    66% {
+        transform: translate(-5%, 3%) rotate(240deg);
+    }
+}
+
+@keyframes starsFloat {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50px);
+    }
 }
 
 .hero-container {
@@ -286,6 +328,9 @@ body {
     margin-bottom: 24px;
     line-height: 1.1;
     animation: fadeInUp 0.8s ease;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3),
+                 0 0 40px rgba(255,255,255,0.1);
+    letter-spacing: -0.02em;
 }
 
 .hero-description {
@@ -313,6 +358,8 @@ body {
     font-weight: 800;
     color: white;
     line-height: 1;
+    text-shadow: 0 0 30px rgba(255,255,255,0.3),
+                 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .stat-label {
@@ -342,24 +389,69 @@ body {
 }
 
 .btn-primary {
-    background: white;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
     color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(255,255,255,0.2),
+                0 0 30px rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(13, 64, 107, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(255,255,255,0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255,255,255,0.4),
+                0 0 50px rgba(255,255,255,0.2);
 }
 
 .btn-secondary {
-    background: transparent;
+    background: rgba(255,255,255,0.1);
     color: white;
-    border: 2px solid white;
+    border: 2px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-secondary:hover::before {
+    left: 100%;
 }
 
 .btn-secondary:hover {
-    background: white;
+    background: rgba(255,255,255,0.95);
     color: var(--primary-color);
+    border-color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255,255,255,0.3);
 }
 
 .hero-image {
@@ -368,15 +460,41 @@ body {
 }
 
 .image-container {
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
     padding: 40px;
-    border: 2px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.15);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.image-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    animation: shimmer 8s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        transform: translate(0, 0);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(-20%, -20%);
+        opacity: 0.6;
+    }
 }
 
 .placeholder-photo {
@@ -408,7 +526,7 @@ body {
     position: absolute;
     bottom: 20px;
     right: 20px;
-    background: var(--success-color);
+    background: linear-gradient(135deg, var(--success-color) 0%, #16a34a 100%);
     color: white;
     padding: 12px 20px;
     border-radius: 50px;
@@ -417,7 +535,21 @@ body {
     gap: 8px;
     font-weight: 600;
     font-size: 0.9em;
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35),
+                0 0 40px rgba(16, 185, 129, 0.2);
+    animation: badgePulse 3s ease-in-out infinite;
+    z-index: 10;
+}
+
+@keyframes badgePulse {
+    0%, 100% {
+        box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35),
+                    0 0 40px rgba(16, 185, 129, 0.2);
+    }
+    50% {
+        box-shadow: 0 8px 24px rgba(16, 185, 129, 0.5),
+                    0 0 60px rgba(16, 185, 129, 0.4);
+    }
 }
 
 .status-dot {

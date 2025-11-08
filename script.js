@@ -1,41 +1,44 @@
 // ===========================
-// Theme Switcher
+// Theme Switcher (Optional)
 // ===========================
 const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = document.querySelector('.theme-icon');
-const themes = ['light', 'dark', 'professional'];
-let currentThemeIndex = 0;
 
-// Load saved theme
-const savedTheme = localStorage.getItem('theme') || 'light';
-const savedThemeIndex = themes.indexOf(savedTheme);
-currentThemeIndex = savedThemeIndex !== -1 ? savedThemeIndex : 0;
-document.documentElement.setAttribute('data-theme', themes[currentThemeIndex]);
-updateThemeIcon();
+if (themeToggle && themeIcon) {
+    const themes = ['light', 'dark', 'professional'];
+    let currentThemeIndex = 0;
 
-// Theme toggle functionality
-themeToggle.addEventListener('click', () => {
-    themeToggle.classList.add('rotating');
-    
-    setTimeout(() => {
-        currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-        const newTheme = themes[currentThemeIndex];
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedThemeIndex = themes.indexOf(savedTheme);
+    currentThemeIndex = savedThemeIndex !== -1 ? savedThemeIndex : 0;
+    document.documentElement.setAttribute('data-theme', themes[currentThemeIndex]);
+    updateThemeIcon();
+
+    // Theme toggle functionality
+    themeToggle.addEventListener('click', () => {
+        themeToggle.classList.add('rotating');
         
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon();
-        
-        themeToggle.classList.remove('rotating');
-    }, 150);
-});
+        setTimeout(() => {
+            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+            const newTheme = themes[currentThemeIndex];
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon();
+            
+            themeToggle.classList.remove('rotating');
+        }, 150);
+    });
 
-function updateThemeIcon() {
-    const icons = {
-        light: '🌙',
-        dark: '🌟',
-        professional: '☀️'
-    };
-    themeIcon.textContent = icons[themes[currentThemeIndex]];
+    function updateThemeIcon() {
+        const icons = {
+            light: '🌙',
+            dark: '🌟',
+            professional: '☀️'
+        };
+        themeIcon.textContent = icons[themes[currentThemeIndex]];
+    }
 }
 
 // ===========================
@@ -47,44 +50,56 @@ const navMenu = document.getElementById('nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 const scrollTopBtn = document.getElementById('scroll-top');
 
-// Initialize skill bar animations
+// Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize skill bar fills
     const skillFills = document.querySelectorAll('.skill-fill');
     skillFills.forEach(fill => {
         const width = fill.getAttribute('data-width');
         fill.style.setProperty('--width', width);
     });
+    
+    // Start counter animation immediately
+    setTimeout(() => {
+        checkCounters();
+    }, 100);
 });
 
 // Sticky navbar on scroll
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
+    if (navbar && window.scrollY > 100) {
         navbar.classList.add('scrolled');
-    } else {
+    } else if (navbar) {
         navbar.classList.remove('scrolled');
     }
 
     // Show/hide scroll to top button
-    if (window.scrollY > 300) {
+    if (scrollTopBtn && window.scrollY > 300) {
         scrollTopBtn.classList.add('visible');
-    } else {
+    } else if (scrollTopBtn) {
         scrollTopBtn.classList.remove('visible');
     }
 
     // Trigger animations on scroll
-    animateOnScroll();
+    if (typeof animateOnScroll === 'function') {
+        animateOnScroll();
+    }
 });
 
 // Mobile menu toggle
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    
-    // Animate hamburger
-    const spans = hamburger.querySelectorAll('span');
-    spans[0].style.transform = navMenu.classList.contains('active') ? 'rotate(-45deg) translate(-5px, 6px)' : '';
-    spans[1].style.opacity = navMenu.classList.contains('active') ? '0' : '1';
-    spans[2].style.transform = navMenu.classList.contains('active') ? 'rotate(45deg) translate(-5px, -6px)' : '';
-});
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        
+        // Animate hamburger
+        const spans = hamburger.querySelectorAll('span');
+        if (spans.length >= 3) {
+            spans[0].style.transform = navMenu.classList.contains('active') ? 'rotate(-45deg) translate(-5px, 6px)' : '';
+            spans[1].style.opacity = navMenu.classList.contains('active') ? '0' : '1';
+            spans[2].style.transform = navMenu.classList.contains('active') ? 'rotate(45deg) translate(-5px, -6px)' : '';
+        }
+    });
+}
 
 // Close mobile menu when clicking a link
 navLinks.forEach(link => {
@@ -118,15 +133,35 @@ navLinks.forEach(link => {
         navLinks.forEach(l => l.classList.remove('active'));
         link.classList.add('active');
     });
+    
+    // Add ripple effect on click
+    link.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+        this.appendChild(ripple);
+        
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        
+        setTimeout(() => ripple.remove(), 600);
+    });
 });
 
 // Scroll to top button
-scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
-});
+}
 
 // Update active nav link on scroll
 function updateActiveNavLink() {
@@ -152,12 +187,66 @@ function updateActiveNavLink() {
 window.addEventListener('scroll', updateActiveNavLink);
 
 // ===========================
+// Enhanced Hover Effects
+// ===========================
+
+// Add ripple effect to all buttons
+const buttons = document.querySelectorAll('.btn');
+buttons.forEach(button => {
+    button.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+        this.appendChild(ripple);
+        
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        
+        setTimeout(() => ripple.remove(), 600);
+    });
+});
+
+// Logo TK badge glow effect on hover
+const logoText = document.querySelector('.logo-text');
+if (logoText) {
+    logoText.addEventListener('mouseenter', function() {
+        this.style.boxShadow = '0 0 20px rgba(0, 119, 182, 0.6), 0 0 40px rgba(144, 224, 239, 0.4)';
+    });
+    
+    logoText.addEventListener('mouseleave', function() {
+        this.style.boxShadow = '';
+    });
+}
+
+// Parallax effect removed to prevent jitter
+
+// Add hover sound effect (optional - commented out by default)
+// Uncomment to enable click sound on nav links
+/*
+navLinks.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+        // Play subtle hover sound
+        const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBTGH0fPTgjMGHm7A7+OZURE');
+        audio.volume = 0.1;
+        audio.play();
+    });
+});
+*/
+
+// ===========================
 // Counter Animation
 // ===========================
 function animateCounter(element, target, duration = 2000) {
+    if (!element) return;
+    
     let start = 0;
     const increment = target / (duration / 16); // 60 FPS
-    const shouldHavePlus = target === 8 || target === 15 || target === 1000; // Numbers that should have "+"
+    const shouldHavePlus = target === 8 || target === 50 || target === 1000; // Numbers that should have "+"
     
     const timer = setInterval(() => {
         start += increment;
@@ -174,14 +263,25 @@ function animateCounter(element, target, duration = 2000) {
 let countersAnimated = false;
 
 function checkCounters() {
+    if (countersAnimated) return;
+    
     const hero = document.querySelector('.hero');
+    if (!hero) {
+        console.log('Hero section not found');
+        return;
+    }
+    
     const heroPosition = hero.getBoundingClientRect();
 
-    if (!countersAnimated && heroPosition.top < window.innerHeight && heroPosition.bottom >= 0) {
-        const statNumbers = document.querySelectorAll('.stat-number');
+    if (heroPosition.top < window.innerHeight && heroPosition.bottom >= 0) {
+        // Only select stat numbers in the hero section
+        const statNumbers = hero.querySelectorAll('.stat-number');
+        console.log('Found', statNumbers.length, 'stat numbers in hero');
+        
         statNumbers.forEach(stat => {
             const target = parseInt(stat.getAttribute('data-target'));
-            if (!isNaN(target)) { // Only animate if we have a valid number
+            if (!isNaN(target)) {
+                console.log('Animating counter to:', target);
                 animateCounter(stat, target);
             }
         });
@@ -189,6 +289,7 @@ function checkCounters() {
     }
 }
 
+// Trigger counters on scroll and load
 window.addEventListener('scroll', checkCounters);
 window.addEventListener('load', checkCounters);
 
@@ -216,6 +317,34 @@ function animateSkillBars() {
 
 window.addEventListener('scroll', animateSkillBars);
 window.addEventListener('load', animateSkillBars);
+
+// ===========================
+// About Section Stats Animation
+// ===========================
+let aboutStatsAnimated = false;
+
+function animateAboutStats() {
+    if (aboutStatsAnimated) return;
+    
+    const aboutSection = document.querySelector('.about');
+    if (!aboutSection) return;
+    
+    const aboutPosition = aboutSection.getBoundingClientRect();
+    
+    if (aboutPosition.top < window.innerHeight - 100 && aboutPosition.bottom >= 0) {
+        const aboutStatNumbers = aboutSection.querySelectorAll('.stat-number');
+        aboutStatNumbers.forEach(stat => {
+            const target = parseInt(stat.getAttribute('data-target'));
+            if (!isNaN(target) && stat.textContent === '0') { // Only animate if not already animated
+                animateCounter(stat, target);
+            }
+        });
+        aboutStatsAnimated = true;
+    }
+}
+
+window.addEventListener('scroll', animateAboutStats);
+window.addEventListener('load', animateAboutStats);
 
 // ===========================
 // Timeline Animation

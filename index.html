@@ -5,7 +5,928 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tayyab Khattak - Professional Network Infrastructure Specialist specializing in data center networking, Nokia equipment, and telecommunications.">
     <title>Tayyab Khattak | Network Infrastructure Specialist</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2025110803">
+    <style>
+        /* FIX ALIGNMENT */
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            overflow-x: hidden !important;
+        }
+        /* OCEAN BLUE COLOR THEME - Force Override */
+        :root {
+            --primary-color: #0077B6 !important;
+            --secondary-color: #023E8A !important;
+            --accent-color: #90E0EF !important;
+            --dark-color: #1e293b !important;
+            --border-color: #CAF0F8 !important;
+            --gray-color: #64748b !important;
+        }
+        .hero {
+            background: linear-gradient(135deg, #023E8A 0%, #0077B6 50%, #90E0EF 100%) !important;
+            margin-top: 0 !important;
+            padding-top: 100px !important;
+        }
+        .timeline-content h3 {
+            color: #023E8A !important;
+        }
+        .timeline-content .company,
+        .timeline-content p {
+            color: #64748b !important;
+        }
+        .timeline-item {
+            opacity: 1 !important;
+            transform: translateX(0) !important;
+        }
+        .footer {
+            background: #1E293B !important;
+        }
+        .footer h3, .footer h4 {
+            color: #ffffff !important;
+        }
+        .footer p, .footer li {
+            color: #94a3b8 !important;
+        }
+        .footer a {
+            color: #94a3b8 !important;
+        }
+        .footer a:hover {
+            color: #0077B6 !important;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1) !important;
+        }
+        .footer-bottom p {
+            color: #94a3b8 !important;
+        }
+        section {
+            background: white !important;
+        }
+        .services {
+            background: white !important;
+        }
+        .testimonials, .experience, .about {
+            background: #1E293B !important;
+        }
+        .experience {
+            padding-bottom: 0 !important;
+            margin-bottom: 0 !important;
+        }
+        /* Contact form styling */
+        .contact-info-section {
+            background: #1e293b !important;
+            padding: 40px !important;
+            border-radius: 12px !important;
+            color: white !important;
+        }
+        .contact-info-section h3 {
+            color: #ffffff !important;
+        }
+        .contact-info-section p {
+            color: #CAF0F8 !important;
+        }
+        .contact-item h4 {
+            color: #ffffff !important;
+        }
+        .contact-item a,
+        .contact-item p {
+            color: #CAF0F8 !important;
+        }
+        .contact-form-section {
+            background: #1e293b !important;
+            padding: 40px !important;
+            border-radius: 12px !important;
+        }
+        /* Modern Contact Form Styling */
+        .contact-form-modern {
+            margin-top: 40px !important;
+        }
+        .form-row {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 30px !important;
+            margin-bottom: 30px !important;
+        }
+        .form-field {
+            position: relative !important;
+            margin-bottom: 30px !important;
+        }
+        .form-field-full {
+            grid-column: 1 / -1 !important;
+        }
+        .form-field input,
+        .form-field textarea {
+            width: 100% !important;
+            padding: 16px 0 !important;
+            background: transparent !important;
+            border: none !important;
+            border-bottom: 2px solid rgba(144, 224, 239, 0.3) !important;
+            color: #ffffff !important;
+            font-size: 16px !important;
+            font-family: 'Inter', sans-serif !important;
+            transition: all 0.3s ease !important;
+            outline: none !important;
+        }
+        .form-field label {
+            position: absolute !important;
+            left: 0 !important;
+            top: 16px !important;
+            color: #90E0EF !important;
+            font-size: 16px !important;
+            transition: all 0.3s ease !important;
+            pointer-events: none !important;
+            background: transparent !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+            display: block !important;
+            margin: 0 !important;
+        }
+        .form-field input:focus ~ label,
+        .form-field input:not(:placeholder-shown) ~ label,
+        .form-field textarea:focus ~ label,
+        .form-field textarea:not(:placeholder-shown) ~ label {
+            top: -8px !important;
+            font-size: 12px !important;
+            color: #0077B6 !important;
+            font-weight: 600 !important;
+        }
+        .form-line {
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            width: 0 !important;
+            height: 2px !important;
+            background: linear-gradient(90deg, #0077B6, #90E0EF) !important;
+            transition: width 0.4s ease !important;
+        }
+        .form-field input:focus ~ .form-line,
+        .form-field textarea:focus ~ .form-line {
+            width: 100% !important;
+        }
+        .form-field textarea {
+            resize: vertical !important;
+            min-height: 120px !important;
+        }
+        .btn-submit {
+            background: linear-gradient(135deg, #0077B6, #023E8A) !important;
+            color: white !important;
+            border: none !important;
+            padding: 18px 40px !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            border-radius: 50px !important;
+            cursor: pointer !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+            box-shadow: 0 4px 15px rgba(0, 119, 182, 0.3) !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+        .btn-submit::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            width: 0 !important;
+            height: 0 !important;
+            border-radius: 50% !important;
+            background: rgba(255, 255, 255, 0.2) !important;
+            transform: translate(-50%, -50%) !important;
+            transition: width 0.6s ease, height 0.6s ease !important;
+        }
+        .btn-submit:hover::before {
+            width: 400px !important;
+            height: 400px !important;
+        }
+        .btn-submit:hover {
+            transform: translateY(-3px) !important;
+            box-shadow: 0 8px 25px rgba(0, 119, 182, 0.5) !important;
+        }
+        .btn-submit:active {
+            transform: translateY(-1px) !important;
+        }
+        .btn-text,
+        .btn-icon-wrapper {
+            position: relative !important;
+            z-index: 1 !important;
+        }
+        .btn-arrow {
+            width: 20px !important;
+            height: 20px !important;
+            transition: transform 0.3s ease !important;
+        }
+        .btn-submit:hover .btn-arrow {
+            transform: translateX(5px) !important;
+        }
+        .form-message {
+            margin-top: 20px !important;
+            padding: 15px !important;
+            border-radius: 8px !important;
+            display: none !important;
+        }
+        .form-message.success {
+            background: rgba(16, 185, 129, 0.1) !important;
+            border: 1px solid #10b981 !important;
+            color: #10b981 !important;
+        }
+        .form-message.error {
+            background: rgba(239, 68, 68, 0.1) !important;
+            border: 1px solid #ef4444 !important;
+            color: #ef4444 !important;
+        }
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr !important;
+                gap: 0 !important;
+            }
+        }
+        /* Simple CTA Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, #023E8A 0%, #0077B6 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+        .banner-content h2 {
+            color: #ffffff;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        .banner-content p {
+            color: #CAF0F8;
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .banner-btn {
+            display: inline-block;
+            background: #ffffff;
+            color: #023E8A;
+            padding: 16px 45px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        .banner-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            background: #CAF0F8;
+        }
+        @media (max-width: 768px) {
+            .cta-banner {
+                padding: 60px 20px;
+            }
+            .banner-content h2 {
+                font-size: 1.8em;
+            }
+            .banner-content p {
+                font-size: 1em;
+            }
+        }
+        /* Contact Header Section - White background with blue text */
+        .contact-header {
+            background: white !important;
+            padding-top: 60px !important;
+            padding-bottom: 60px !important;
+            margin: 0 !important;
+        }
+        .contact-header .section-header {
+            margin-bottom: 0 !important;
+        }
+        .contact-header .section-subtitle {
+            color: #0077B6 !important;
+            text-transform: uppercase;
+            font-size: 0.9em !important;
+            letter-spacing: 2px !important;
+            font-weight: 600 !important;
+            margin-bottom: 16px !important;
+        }
+        .contact-header .section-title {
+            color: #023E8A !important;
+            font-size: 2.8em !important;
+            font-weight: 700 !important;
+            margin: 0 !important;
+        }
+        .contact {
+            padding: 60px 0 60px 0 !important;
+            background: #1e293b !important;
+            margin: 0 !important;
+        }
+        .contact .container {
+            max-width: 100% !important;
+            padding: 0 !important;
+        }
+        .contact-content {
+            background: #1e293b !important;
+            padding: 0 80px !important;
+            border-radius: 0 !important;
+            gap: 60px !important;
+            margin: 0 !important;
+        }
+        .contact-content h3 {
+            color: #ffffff !important;
+        }
+        .contact-content > p {
+            color: #CAF0F8 !important;
+        }
+        .contact .contact-icon,
+        .contact-content .contact-icon,
+        .contact-item .contact-icon,
+        div.contact-icon {
+            background: #293445 !important;
+            background-color: #293445 !important;
+        }
+        .contact-detail h4 {
+            color: #ffffff !important;
+        }
+        .contact-detail a,
+        .contact-detail p {
+            color: #CAF0F8 !important;
+        }
+        .contact-info-section {
+            background: transparent !important;
+        }
+        .contact-form-section {
+            background: #1e293b !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+        }
+        /* Services Header Section - White background with blue text */
+        .services-header {
+            background: white !important;
+            padding-top: 30px !important;
+            padding-bottom: 30px !important;
+            margin: 0 !important;
+            text-align: center !important;
+        }
+        .services-header .section-header {
+            margin-bottom: 0 !important;
+        }
+        .services-header .section-subtitle {
+            color: #0077B6 !important;
+            text-transform: uppercase;
+            font-size: 0.9em !important;
+            letter-spacing: 2px !important;
+            font-weight: 600 !important;
+            margin-bottom: 12px !important;
+            display: block !important;
+        }
+        .services-header .section-title {
+            color: #023E8A !important;
+            font-size: 2.5em !important;
+            font-weight: 700 !important;
+            margin: 0 !important;
+        }
+        .services {
+            padding-top: 40px !important;
+            padding-bottom: 40px !important;
+            background: #1e293b !important;
+        }
+        .services .service-card {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        .services .service-card h3 {
+            color: #ffffff !important;
+        }
+        .services .service-card p {
+            color: #CAF0F8 !important;
+        }
+        .services .service-features li {
+            color: #CAF0F8 !important;
+        }
+        .services .service-icon {
+            color: #90E0EF !important;
+        }
+        .services .section-header {
+            display: none !important;
+        }
+        /* Testimonials Header Section - White background with blue text */
+        .testimonials-header {
+            background: white !important;
+            padding-top: 60px !important;
+            padding-bottom: 60px !important;
+            margin: 0 !important;
+        }
+        .testimonials-header .section-header {
+            margin-bottom: 0 !important;
+        }
+        .testimonials-header .section-subtitle {
+            color: #0077B6 !important;
+            text-transform: uppercase;
+            font-size: 0.9em !important;
+            letter-spacing: 2px !important;
+            font-weight: 600 !important;
+            margin-bottom: 16px !important;
+        }
+        .testimonials-header .section-title {
+            color: #023E8A !important;
+            font-size: 2.8em !important;
+            font-weight: 700 !important;
+            margin: 0 !important;
+        }
+        .testimonials {
+            padding-top: 60px !important;
+            padding-bottom: 80px !important;
+            background: #1E293B !important;
+            margin: 0 !important;
+        }
+        .testimonials .section-header {
+            display: none !important;
+        }
+        .testimonials .section-subtitle {
+            color: #CAF0F8 !important;
+        }
+        .testimonials .section-title {
+            color: #ffffff !important;
+        }
+        /* About Header Section - White background with light blue text */
+        .about-header {
+            background: white !important;
+            padding-top: 60px !important;
+            padding-bottom: 60px !important;
+            margin: 0 !important;
+        }
+        .about-header .section-header {
+            margin-bottom: 0 !important;
+            text-align: center !important;
+        }
+        .about-header .section-subtitle {
+            color: #90E0EF !important;
+            text-transform: uppercase;
+            font-size: 0.9em !important;
+            letter-spacing: 2px !important;
+            font-weight: 600 !important;
+            margin-bottom: 16px !important;
+        }
+        .about-header .section-title {
+            color: #023E8A !important;
+            font-size: 2.8em !important;
+            font-weight: 700 !important;
+            margin: 0 !important;
+        }
+        .about {
+            background: white !important;
+            padding: 80px 0 40px 0 !important;
+            margin: 0 !important;
+        }
+        .about .section-header {
+            display: none !important;
+        }
+        .about .container {
+            max-width: 100% !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .about .about-content {
+            background: #1e293b !important;
+            padding: 40px 80px 30px 80px !important;
+            border-radius: 0 !important;
+            margin: 0 !important;
+        }
+        .about .about-main {
+            gap: 30px !important;
+        }
+        .about .about-stats {
+            gap: 12px !important;
+        }
+        .about .about-text {
+            gap: 16px !important;
+        }
+        .about .section-subtitle {
+            color: #CAF0F8 !important;
+        }
+        .about .section-title,
+        .about h3,
+        .about-intro h2 {
+            color: #ffffff !important;
+        }
+        .about-intro p,
+        .about-text p {
+            color: #CAF0F8 !important;
+        }
+        .about-text .lead {
+            color: #ffffff !important;
+            font-weight: 500 !important;
+        }
+        .about .info-card {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        .about .info-card h3 {
+            color: #ffffff !important;
+        }
+        .about .info-card p {
+            color: #CAF0F8 !important;
+        }
+        .about .info-card .card-icon {
+            color: #90E0EF !important;
+        }
+        .cert-item span,
+        .skill-label,
+        .skill-percentage,
+        .stat-label {
+            color: #CAF0F8 !important;
+        }
+        .about .stat-card {
+            background: #293445 !important;
+            border: none !important;
+            padding: 30px 20px !important;
+            border-radius: 12px !important;
+        }
+        .about .stat-number {
+            color: #90E0EF !important;
+            font-weight: 700 !important;
+            font-size: 3em !important;
+            margin-bottom: 12px !important;
+        }
+        .about .stat-label {
+            color: #90E0EF !important;
+            font-size: 0.85em !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            font-weight: 600 !important;
+        }
+        .cert-item {
+            background: #293445 !important;
+            box-shadow: none !important;
+            border-left: 4px solid #0077B6 !important;
+        }
+        .cert-item span {
+            color: #90E0EF !important;
+        }
+        .skill-bar {
+            background: rgba(202, 240, 248, 0.2) !important;
+        }
+        /* Experience Header Section - White background with blue text */
+        .experience-header {
+            background: white !important;
+            padding-top: 60px !important;
+            padding-bottom: 60px !important;
+            margin: 0 !important;
+        }
+        .experience-header .section-header {
+            margin-bottom: 0 !important;
+        }
+        .experience-header .section-subtitle {
+            color: #0077B6 !important;
+            text-transform: uppercase;
+            font-size: 0.9em !important;
+            letter-spacing: 2px !important;
+            font-weight: 600 !important;
+            margin-bottom: 16px !important;
+        }
+        .experience-header .section-title {
+            color: #023E8A !important;
+            font-size: 2.8em !important;
+            font-weight: 700 !important;
+            margin: 0 !important;
+        }
+        .experience {
+            background: #1e293b !important;
+            padding-top: 60px !important;
+            padding-bottom: 0 !important;
+            margin: 0 !important;
+        }
+        .experience .section-header {
+            display: none !important;
+        }
+        .experience .section-subtitle {
+            color: #CAF0F8 !important;
+        }
+        .experience .section-title {
+            color: #ffffff !important;
+        }
+        .timeline::before {
+            background: rgba(144, 224, 239, 0.3) !important;
+        }
+        .timeline-date {
+            color: #90E0EF !important;
+        }
+        .timeline-item::before {
+            background: #90E0EF !important;
+            border: 4px solid #1e293b !important;
+        }
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+        }
+        .testimonial-card p {
+            color: #94a3b8 !important;
+        }
+        .testimonial-author h4 {
+            color: #ffffff !important;
+        }
+        .testimonial-author p {
+            color: #94a3b8 !important;
+        }
+        /* FIXED HEIGHT - Compact hero to show About section */
+        .hero {
+            min-height: 700px !important;
+            max-height: 700px !important;
+            height: 700px !important;
+            display: block !important;
+            padding-top: 100px !important;
+            padding-bottom: 40px !important;
+            overflow: hidden !important;
+            margin-bottom: 0 !important;
+            position: relative !important;
+            z-index: 0 !important;
+        }
+        .hero-background {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            z-index: -1 !important;
+        }
+        .hero-container {
+            position: relative !important;
+            z-index: 1 !important;
+        }
+        .hero-content {
+            display: grid !important;
+            grid-template-columns: 1.2fr 0.8fr !important;
+            gap: 40px !important;
+            align-items: start !important;
+        }
+        .hero-text {
+            display: flex !important;
+            flex-direction: column !important;
+        }
+        /* Balanced spacing before About section */
+        .about {
+            padding-top: 80px !important;
+            margin-top: 0 !important;
+            background: white !important;
+            position: relative !important;
+            z-index: 10 !important;
+        }
+        .about-header {
+            position: relative !important;
+            z-index: 10 !important;
+        }
+        section {
+            position: relative !important;
+            z-index: 10 !important;
+        }
+        body {
+            background: white !important;
+        }
+        .section-header {
+            margin-bottom: 50px !important;
+        }
+        /* Reduce hero element sizes */
+        .hero-title {
+            font-size: 3.5em !important;
+            margin-bottom: 20px !important;
+        }
+        .hero-description {
+            font-size: 1.1em !important;
+            margin-bottom: 30px !important;
+        }
+        .hero-stats {
+            gap: 30px !important;
+            margin-bottom: 20px !important;
+        }
+        .hero-buttons {
+            margin-top: 10px !important;
+        }
+        .stat-number {
+            font-size: 2.8em !important;
+        }
+        @media (max-width: 1024px) {
+            .hero {
+                min-height: 650px !important;
+                max-height: 650px !important;
+                height: 650px !important;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 600px !important;
+                max-height: 600px !important;
+                height: 600px !important;
+                padding-top: 90px !important;
+                padding-bottom: 40px !important;
+            }
+            .hero-content {
+                grid-template-columns: 1fr !important;
+                gap: 30px !important;
+            }
+            .hero-title {
+                font-size: 2.5em !important;
+            }
+        }
+        
+        /* ===========================
+           HOVER EFFECTS ENHANCEMENT
+           =========================== */
+        
+        /* Nav Link Hover Effects */
+        .nav-link {
+            position: relative !important;
+            overflow: hidden !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        /* Animated underline that grows from center */
+        .nav-link::before {
+            content: '' !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 50% !important;
+            width: 0 !important;
+            height: 2px !important;
+            background: linear-gradient(90deg, #90E0EF, #0077B6) !important;
+            transform: translateX(-50%) !important;
+            transition: width 0.3s ease !important;
+        }
+        
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            width: 80% !important;
+        }
+        
+        /* Subtle lift on hover */
+        .nav-link:hover {
+            transform: translateY(-2px) !important;
+            color: #0077B6 !important;
+        }
+        
+        .nav-link.active {
+            color: #0077B6 !important;
+        }
+        
+        /* Ripple effect container */
+        .nav-link .ripple {
+            position: absolute !important;
+            border-radius: 50% !important;
+            background: rgba(0, 119, 182, 0.3) !important;
+            transform: scale(0) !important;
+            animation: ripple-animation 0.6s ease-out !important;
+            pointer-events: none !important;
+        }
+        
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4) !important;
+                opacity: 0 !important;
+            }
+        }
+        
+        /* Logo TK Badge Animation */
+        .logo-text {
+            position: relative !important;
+            display: inline-block !important;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+        }
+        
+        .logo-text:hover {
+            transform: rotate(360deg) scale(1.1) !important;
+            box-shadow: 0 0 20px rgba(0, 119, 182, 0.5) !important;
+        }
+        
+        /* Logo name subtle effect */
+        .logo-name {
+            transition: all 0.3s ease !important;
+        }
+        
+        .nav-logo:hover .logo-name {
+            color: #0077B6 !important;
+            letter-spacing: 1px !important;
+        }
+        
+        /* Button hover enhancements */
+        .btn {
+            position: relative !important;
+            overflow: hidden !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .btn::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            width: 0 !important;
+            height: 0 !important;
+            border-radius: 50% !important;
+            background: rgba(255, 255, 255, 0.2) !important;
+            transform: translate(-50%, -50%) !important;
+            transition: width 0.5s ease, height 0.5s ease !important;
+        }
+        
+        .btn:hover::before {
+            width: 300px !important;
+            height: 300px !important;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px) !important;
+            box-shadow: 0 10px 25px rgba(0, 119, 182, 0.4) !important;
+        }
+        
+        .btn:active {
+            transform: translateY(-1px) !important;
+        }
+        
+        /* Service card hover effects */
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02) !important;
+            box-shadow: 0 20px 40px rgba(0, 119, 182, 0.2) !important;
+        }
+        
+        .service-icon {
+            transition: all 0.4s ease !important;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: rotateY(360deg) scale(1.1) !important;
+            color: #0077B6 !important;
+        }
+        
+        /* Info card hover effects */
+        .info-card {
+            transition: all 0.3s ease !important;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px) !important;
+            border-color: #0077B6 !important;
+        }
+        
+        .info-card:hover .card-icon {
+            transform: scale(1.2) rotate(5deg) !important;
+            color: #0077B6 !important;
+        }
+        
+        .card-icon {
+            transition: all 0.3s ease !important;
+        }
+        
+        /* Stat card hover effects */
+        .stat-card {
+            transition: all 0.3s ease !important;
+            cursor: default !important;
+        }
+        
+        .stat-card:hover {
+            transform: scale(1.05) !important;
+            border: 2px solid #0077B6 !important;
+        }
+        
+        .stat-card:hover .stat-number {
+            transform: scale(1.1) !important;
+            color: #CAF0F8 !important;
+        }
+        
+        .stat-number {
+            transition: all 0.3s ease !important;
+        }
+        
+
+        
+        /* Timeline item hover effects */
+        .timeline-item {
+            transition: all 0.3s ease !important;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(10px) !important;
+        }
+        
+        .timeline-item:hover::before {
+            transform: scale(1.5) !important;
+            box-shadow: 0 0 20px rgba(144, 224, 239, 0.8) !important;
+        }
+        
+        /* Scroll to top button enhancement */
+        .scroll-top {
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-5px) scale(1.1) rotate(360deg) !important;
+            box-shadow: 0 10px 25px rgba(0, 119, 182, 0.5) !important;
+        }
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -26,11 +947,6 @@
                 <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="theme-switcher">
-                <button class="theme-btn" id="theme-toggle" title="Switch Theme">
-                    <span class="theme-icon">🌙</span>
-                </button>
-            </div>
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -107,17 +1023,7 @@
                         <div class="card-content">
                             <div class="profile-section">
                                 <div class="profile-avatar">
-                                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-                                        <circle cx="30" cy="30" r="30" fill="url(#avatarGradient)"/>
-                                        <circle cx="30" cy="22" r="8" fill="white"/>
-                                        <path d="M15 45 Q30 35 45 45 L45 60 L15 60 Z" fill="white"/>
-                                        <defs>
-                                            <linearGradient id="avatarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                                <stop offset="0%" style="stop-color:#667eea"/>
-                                                <stop offset="100%" style="stop-color:#764ba2"/>
-                                            </linearGradient>
-                                        </defs>
-                                    </svg>
+                                    <img src="Photo/Tayyab.png" alt="Tayyab Khattak" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
                                 </div>
                                 <div class="profile-info">
                                     <h3>Tayyab Khattak</h3>
@@ -160,12 +1066,14 @@
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <span>Discover More</span>
-            <div class="scroll-arrow">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-                </svg>
+    </section>
+
+    <!-- About Header Section -->
+    <section class="about-header">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Get to Know Me</span>
+                <h2 class="section-title">About Me</h2>
             </div>
         </div>
     </section>
@@ -173,26 +1081,35 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Get to Know Me</span>
-                <h2 class="section-title">About Me</h2>
-            </div>
             <div class="about-content">
                 <div class="about-main">
                     <div class="about-text">
                         <p class="lead">
-                            Network Infrastructure Specialist with over 8 years of expertise in data center networking and telecommunications. 
-                            Currently deploying Nokia 7210/7250 switches for Nokia's Oulu campus project.
+                            Building the backbone of Europe's digital infrastructure, one network at a time.
                         </p>
                         <p>
-                            I hold a Master's degree in Telecommunications Engineering from University of Vaasa, Finland, and am CCNA certified. 
-                            My experience spans international projects across Finland, Belgium, Netherlands, and France, including the successful 
-                            migration of 1,000 users across 7 sites with zero critical incidents.
+                            As a Network Infrastructure Specialist with 8+ years of hands-on expertise, I architect 
+                            and deploy mission-critical data center networks for enterprise clients across Europe. 
+                            Currently at the helm of Nokia's Oulu campus network deployment—managing 50+ Nokia 
+                            7210/7250 switches and overseeing complete infrastructure implementation from fiber 
+                            termination to final commissioning.
                         </p>
                         <p>
-                            I operate through Infinity Services Oy, providing professional network infrastructure and data center services 
-                            across Europe. My expertise includes Nokia equipment deployment, structured cabling, network architecture design, 
-                            and large-scale infrastructure projects.
+                            My portfolio speaks volumes:<br>
+                            → 1,000-user migration across 7 countries: Zero incidents, zero downtime<br>
+                            → Nokia's global private cloud: Complete network architecture documentation<br>
+                            → €500K+ equipment deployments: Precision planning and execution<br>
+                            → International projects: Finland → Belgium → Netherlands → France
+                        </p>
+                        <p>
+                            Armed with a Master's in Telecommunications Engineering (University of Vaasa) and CCNA 
+                            certification, I combine academic rigor with real-world execution. Through Infinity 
+                            Services Oy, I deliver specialized expertise in Nokia platforms, data center networking, 
+                            structured cabling systems, and enterprise-scale network transformations.
+                        </p>
+                        <p>
+                            The difference? I don't just deploy networks—I deliver infrastructure that scales, 
+                            performs, and never fails when it matters most.
                         </p>
                     </div>
                     <div class="about-stats">
@@ -201,7 +1118,7 @@
                             <div class="stat-label">Years Experience</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number" data-target="15">0</div>
+                            <div class="stat-number" data-target="50">0</div>
                             <div class="stat-label">Projects Completed</div>
                         </div>
                         <div class="stat-card">
@@ -243,6 +1160,9 @@
                         <p>Data center networking, Nokia equipment deployment, and large-scale infrastructure projects</p>
                     </div>
                 </div>
+                <div class="about-skills">
+                    <h3>Technical Expertise</h3>
+                </div>
                     <div class="certifications-list">
                         <div class="cert-item">
                             <svg class="cert-icon" fill="currentColor" viewBox="0 0 20 20">
@@ -271,7 +1191,6 @@
                     </div>
                 </div>
                 <div class="about-skills">
-                    <h3>Technical Expertise</h3>
                     <div class="skill-bars">
                         <div class="skill-bar">
                             <div class="skill-info">
@@ -320,6 +1239,16 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Header Section -->
+    <section class="services-header">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">What I Offer</span>
+                <h2 class="section-title">My Services</h2>
             </div>
         </div>
     </section>
@@ -433,13 +1362,19 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
+    <!-- Experience Header Section -->
+    <section class="experience-header">
         <div class="container">
             <div class="section-header">
                 <span class="section-subtitle">My Journey</span>
                 <h2 class="section-title">Professional Experience</h2>
             </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-date">Dec 2024 - Present</div>
@@ -477,6 +1412,16 @@
         </div>
     </section>
 
+    <!-- Client Testimonials Header Section -->
+    <section class="testimonials-header">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Client Feedback</span>
+                <h2 class="section-title">Testimonials</h2>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
         <div class="container">
@@ -493,13 +1438,12 @@
                             </svg>
                         </div>
                         <p class="testimonial-text">
-                            "Tayyab demonstrated exceptional expertise in our Nokia equipment deployment project. His attention to detail 
-                            and professional approach ensured smooth execution and on-time delivery. Highly recommended for complex network infrastructure projects."
+                            ""
                         </p>
                         <div class="testimonial-author">
                             <div class="author-info">
-                                <h4>Project Manager</h4>
-                                <p>HCL Technologies</p>
+                                <h4></h4>
+                                <p></p>
                             </div>
                         </div>
                     </div>
@@ -512,13 +1456,12 @@
                             </svg>
                         </div>
                         <p class="testimonial-text">
-                            "Working with Tayyab on our multi-site migration was seamless. He coordinated across seven international locations 
-                            with remarkable efficiency. His technical knowledge and project management skills are outstanding."
+                            ""
                         </p>
                         <div class="testimonial-author">
                             <div class="author-info">
-                                <h4>IT Director</h4>
-                                <p>IFF Corporation</p>
+                                <h4></h4>
+                                <p></p>
                             </div>
                         </div>
                     </div>
@@ -531,16 +1474,15 @@
                             </svg>
                         </div>
                         <p class="testimonial-text">
-                            "Tayyab's work on documenting our cloud network infrastructure was thorough and professional. His ability to 
-                            understand complex architectures and create clear documentation was invaluable to our team."
+                        <p class="testimonial-text">
+                            ""
                         </p>
                         <div class="testimonial-author">
                             <div class="author-info">
-                                <h4>Cloud Operations Lead</h4>
-                                <p>Nokia / Proact</p>
+                                <h4></h4>
+                                <p></p>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
             <div class="testimonial-nav">
@@ -559,115 +1501,131 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <!-- Contact Header Section -->
+    <section class="contact-header">
         <div class="container">
             <div class="section-header">
                 <span class="section-subtitle">Get In Touch</span>
                 <h2 class="section-title">Contact Me</h2>
             </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
             <div class="contact-content">
-                <div class="contact-info-section">
-                    <h3>Let's Work Together</h3>
-                    <p>Available for contract work across Finland and Europe. Specializing in data center network infrastructure, Nokia equipment deployment, and large-scale network projects.</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-                                </svg>
-                            </div>
-                            <div class="contact-detail">
-                                <h4>Email</h4>
-                                <a href="mailto:tayyab.khattak@infinityservicesoy.com">tayyab.khattak@infinityservicesoy.com</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <div class="contact-detail">
-                                <h4>LinkedIn</h4>
-                                <a href="https://linkedin.com/in/tayyabmasoodkhattak" target="_blank">linkedin.com/in/tayyabmasoodkhattak</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <div class="contact-detail">
-                                <h4>Company</h4>
-                                <p>Infinity Services Oy</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <div class="contact-detail">
-                                <h4>Location</h4>
-                                <p>Finland (Available across Europe)</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="availability-info">
-                        <div class="status-indicator">
-                            <span class="status-dot pulsing"></span>
-                            <span>Currently Available for New Projects</span>
-                        </div>
-                        <p class="rate-info">Day Rate: €850 - €1,100</p>
-                    </div>
-                </div>
-
-                <div class="contact-form-section">
-                    <form id="contact-form" class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="company">Company</label>
-                            <input type="text" id="company" name="company">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-full">
-                            <span>Send Message</span>
-                            <svg class="btn-icon" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
+                <h3>Let's Work Together</h3>
+                <p>Available for contract work across Finland and Europe. Specializing in data center network infrastructure, Nokia equipment deployment, and large-scale network projects.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
                             </svg>
-                        </button>
-                        
-                        <div class="form-message" id="form-message"></div>
-                    </form>
+                        </div>
+                        <div class="contact-detail">
+                            <h4>Email</h4>
+                            <a href="mailto:tayyab.khattak@infinityservicesoy.com">tayyab.khattak@infinityservicesoy.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div class="contact-detail">
+                            <h4>LinkedIn</h4>
+                            <a href="https://linkedin.com/in/tayyabmasoodkhattak" target="_blank">linkedin.com/in/tayyabmasoodkhattak</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div class="contact-detail">
+                            <h4>Company</h4>
+                            <p>Infinity Services Oy</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div class="contact-detail">
+                            <h4>Location</h4>
+                            <p>Available across Europe</p>
+                        </div>
+                    </div>
                 </div>
+
+                <form id="contact-form" class="contact-form-modern">
+                    <div class="form-row">
+                        <div class="form-field">
+                            <input type="text" id="name" name="name" required placeholder=" ">
+                            <label for="name">Your Name *</label>
+                            <span class="form-line"></span>
+                        </div>
+                        
+                        <div class="form-field">
+                            <input type="email" id="email" name="email" required placeholder=" ">
+                            <label for="email">Email Address *</label>
+                            <span class="form-line"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-field">
+                            <input type="text" id="company" name="company" placeholder=" ">
+                            <label for="company">Company</label>
+                            <span class="form-line"></span>
+                        </div>
+                        
+                        <div class="form-field">
+                            <input type="text" id="subject" name="subject" required placeholder=" ">
+                            <label for="subject">Subject *</label>
+                            <span class="form-line"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-field form-field-full">
+                        <textarea id="message" name="message" rows="6" required placeholder=" "></textarea>
+                        <label for="message">Your Message *</label>
+                        <span class="form-line"></span>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-icon-wrapper">
+                            <svg class="btn-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </span>
+                    </button>
+                    
+                    <div class="form-message" id="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple CTA Banner -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="banner-content">
+                <h2>Ready to Elevate Your Network Infrastructure?</h2>
+                <p>Let's collaborate on building reliable, scalable network solutions that power your business growth. With 8+ years of proven expertise, I deliver infrastructure projects that exceed expectations.</p>
+                <a href="#contact" class="banner-btn">Get in Touch</a>
             </div>
         </div>
     </section>
@@ -703,7 +1661,6 @@
                     <ul>
                         <li><a href="mailto:tayyab.khattak@infinityservicesoy.com">Email</a></li>
                         <li><a href="https://linkedin.com/in/tayyabmasoodkhattak" target="_blank">LinkedIn</a></li>
-                        <li>Finland</li>
                     </ul>
                 </div>
             </div>
